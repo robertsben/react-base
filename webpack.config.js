@@ -9,7 +9,7 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3333',
     'webpack/hot/only-dev-server',
-    APP_DIR + '/index.js'
+    APP_DIR + '/index.jsx'
   ],
   output: {
     path: BUILD_DIR,
