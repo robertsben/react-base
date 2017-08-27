@@ -2,6 +2,7 @@
   "name": "react-base",
   "version": "0.1.0",
   "main": "src/server.js",
+  "repository": "https://github.com/robertsben/react-base",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
@@ -10,17 +11,18 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "webpack-dev-server": "^2.7.1"
-  },
-  "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-latest": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "webpack-dev-server": "^2.7.1",
+    "webpack": "^3.5.5"
+  },
+  "dependencies": {
     "express": "^4.15.4",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "webpack": "^3.5.5"
+    "react-dom": "^15.6.1"
   }
 }

@@ -14,7 +14,7 @@ git pull base master
 2. Run `npm init` and overwrite the applicable parts of `package.json` 
     * _(note: `npm init` will pull the description from this `readme` into `package.json`)_
 3. Customise your skeleton html in `public/index.html`
-4. Start writing your app code in `src/index.jsx`
+4. Start writing your app code in `src/index.js`
 5. Don't forget to overwrite this `readme`!
 
 

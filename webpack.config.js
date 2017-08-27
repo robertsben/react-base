@@ -1,30 +1,44 @@
-var path = require('path')
+const path = require('path')
+const webpack = require('webpack')
 
-var BUILD_DIR = path.resolve(__dirname + '/public')
-var APP_DIR = path.resolve(__dirname + '/src')
+const BUILD_DIR = path.resolve(__dirname + '/public')
+const APP_DIR = path.resolve(__dirname + '/src')
 
-var config = {
-  entry: APP_DIR + '/index.jsx',
+module.exports = {
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3333',
+    'webpack/hot/only-dev-server',
+    APP_DIR + '/index.js'
+  ],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',
     publicPath: '/'
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   devServer: {
     inline: true,
     contentBase: BUILD_DIR,
+    hot: true,
     port: 3333
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: APP_DIR,
-        loader: 'babel-loader'
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env']
+          }
+        }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
+  ]
 }
-
-module.exports = config
