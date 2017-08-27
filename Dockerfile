@@ -14,7 +14,16 @@ COPY . /src/app
 # Build and optimize react app
 RUN npm run build
 
+# Get rid of all the dev node modules
+RUN rm -r node_modules
+
+# set node environment to production
+ENV NODE_ENV production
+# Install prod dependencies
+RUN npm install
+
+#Expose our running port
 EXPOSE 3000
 
 # defined in package.json
-CMD [ "npm", "run", "start:prod" ]
+CMD [ "npm", "start" ]

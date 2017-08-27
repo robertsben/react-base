@@ -1,8 +1,8 @@
 # react-base
 ## Description
-A bare bones "Hello, world!" react app, to be used as a base repo for quick and easy setup of proper ES2017 react apps.
+A bare bones counter react app, to be used as a base repo for quick and easy setup of JS@latest (ES2017 at time of writing) react apps.
 
-This includes a simple webpack/babel transpiling pipeline with hot loading for dev, and a dockerised express server for prod.
+This includes a simple webpack/babel transpiling pipeline with hot loading for dev (inc. react HMR), and a dockerised express server for prod.
 
 
 ## Usage
@@ -14,7 +14,7 @@ git pull base master
 2. Run `npm init` and overwrite the applicable parts of `package.json` 
     * _(note: `npm init` will pull the description from this `readme` into `package.json`)_
 3. Customise your skeleton html in `public/index.html`
-4. Start writing your app code in `src/index.js`
+4. Start writing your app code in `src/index.jsx`
 5. Don't forget to overwrite this `readme`!
 
 

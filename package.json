@@ -1,13 +1,17 @@
 {
   "name": "react-base",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "src/server.js",
   "repository": "https://github.com/robertsben/react-base",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
-    "build": "webpack --config webpack.config.production.js",
-    "start:prod": "babel-node src/server.js"
+    "build": "npm run clean && npm run build-client && npm run build-server",
+    "build-server": "babel -d ./build ./src -s",
+    "build-client": "webpack --config webpack.config.production.js",
+    "clean": "rm -rf build && mkdir build",
+    "lint": "./node_modules/.bin/eslint src/",
+    "start": "node build/server.js"
   },
   "license": "MIT",
   "devDependencies": {
@@ -16,9 +20,11 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^4.5.0",
+    "eslint-plugin-react": "^7.3.0",
     "react-hot-loader": "^3.0.0-beta.7",
-    "webpack-dev-server": "^2.7.1",
-    "webpack": "^3.5.5"
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
     "express": "^4.15.4",
