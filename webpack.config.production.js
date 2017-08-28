@@ -54,9 +54,10 @@ module.exports = {
       name: ['vendor']
     }),
 
-    /* Creates the webpack runtime code split (extracts uses of modules from src files
-      so we don't regenerate vendor every time we make a change in src - webpack witchcraft)
-     */
+    /*
+    Creates the webpack runtime code split (extracts uses of modules from src files
+    so we don't regenerate vendor every time we make a change in src - webpack witchcraft)
+    */
     new webpack.optimize.CommonsChunkPlugin({
       name: ['runtime']
     })
