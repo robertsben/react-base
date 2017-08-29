@@ -1,13 +1,14 @@
 import React from 'react'
-import Counter from '../components/Counter'
-import Layout from '../components/Layout'
+import { BrowserRouter } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
+import routes from '../modules/routes'
 
 export default class App extends React.Component {
   render() {
     return (
-      <Layout>
-        <Counter/>
-      </Layout>
+      <BrowserRouter>
+        {renderRoutes(routes)}
+      </BrowserRouter>
     )
   }
 }
