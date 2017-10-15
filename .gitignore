@@ -1,5 +1,5 @@
 .idea/
 node_modules/
-public/bundle.js
+public/*.js
 public/report.html
 build/
