@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const PUBLIC_DIR = path.resolve(__dirname + '/public')
 const APP_DIR = path.resolve(__dirname + '/src')
@@ -38,13 +37,6 @@ module.exports = {
 
     /* For minimising js */
     new webpack.optimize.UglifyJsPlugin({minimize: true}),
-
-    // /* For generating a HTML file and injecting generated bundles */
-    // new HtmlWebpackPlugin({
-    //   title: 'Counter',
-    //   template: `${APP_DIR}/index.ejs`,
-    //   appMountId: 'app'
-    // }),
 
     /* Prod recommended version of NamedModulesPlugin */
     new webpack.HashedModuleIdsPlugin(),

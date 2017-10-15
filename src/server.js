@@ -17,8 +17,6 @@ const router = express.Router()
 
 router.get('*', (req, res) => {
   let context = {};
-  console.log(`request`)
-  console.log(req)
 
   const content = renderToString(
     <StaticRouter location={req.url} context={context}>
