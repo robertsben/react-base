@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: PUBLIC_DIR,
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
     publicPath: '/'
   },
   module: {
@@ -39,12 +39,12 @@ module.exports = {
     /* For minimising js */
     new webpack.optimize.UglifyJsPlugin({minimize: true}),
 
-    /* For generating a HTML file and injecting generated bundles */
-    new HtmlWebpackPlugin({
-      title: 'Counter',
-      template: require('html-webpack-template'),
-      appMountId: 'app'
-    }),
+    // /* For generating a HTML file and injecting generated bundles */
+    // new HtmlWebpackPlugin({
+    //   title: 'Counter',
+    //   template: `${APP_DIR}/index.ejs`,
+    //   appMountId: 'app'
+    // }),
 
     /* Prod recommended version of NamedModulesPlugin */
     new webpack.HashedModuleIdsPlugin(),
