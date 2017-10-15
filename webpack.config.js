@@ -19,14 +19,14 @@ module.exports = {
     path: PUBLIC_DIR,
     filename: '[name].js',
     publicPath: '/'
-
   },
   devtool: 'inline-source-map',
   devServer: {
     inline: true,
     contentBase: PUBLIC_DIR,
     hot: true,
-    port: DEV_SERVER_PORT
+    port: DEV_SERVER_PORT,
+    historyApiFallback: true
   },
   module: {
     rules: [

@@ -5,26 +5,21 @@ import NotFound from '../components/NotFound'
 
 const routes = [
   {
-    component: AppRoot,
-    routes: [
-      {
-        path: '/',
-        exact: true,
-        component: Home
-      },
-      {
-        path: '/home',
-        component: Home
-      },
-      {
-        path: '/counter',
-        component: Counter
-      },
-      {
-        path: '*',
-        component: NotFound
-      }
-    ]
+    path: '/',
+    exact: true,
+    component: Home
+  },
+  {
+    path: '/home',
+    component: Home
+  },
+  {
+    path: '/counter',
+    component: Counter
+  },
+  {
+    path: '*',
+    component: NotFound
   }
 ]
 
