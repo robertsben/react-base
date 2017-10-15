@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const PUBLIC_DIR = path.resolve(__dirname + '/public')
 const APP_DIR = path.resolve(__dirname + '/src')
@@ -63,6 +64,12 @@ module.exports = {
     */
     new webpack.optimize.CommonsChunkPlugin({
       name: ['runtime']
+    }),
+
+    /* Generate the HTML with the bundles injected */
+    new HtmlWebpackPlugin({
+      title: 'Base',
+      template: `${PUBLIC_DIR}/index.ejs`
     })
   ],
   resolve: {
