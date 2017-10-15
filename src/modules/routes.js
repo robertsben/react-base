@@ -1,4 +1,3 @@
-import AppRoot from '../components/AppRoot'
 import Counter from '../components/Counter'
 import Home from '../components/Home'
 import NotFound from '../components/NotFound'
