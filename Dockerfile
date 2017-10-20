@@ -19,6 +19,7 @@ RUN rm -r node_modules
 
 # set node environment to production
 ENV NODE_ENV production
+
 # Install prod dependencies
 RUN npm install
 

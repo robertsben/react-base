@@ -1,14 +1,18 @@
-var webpack = require('webpack')
-var path = require('path')
+const webpack = require('webpack')
+const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-var BUILD_DIR = path.resolve(__dirname + '/public')
-var APP_DIR = path.resolve(__dirname + '/src')
+const PUBLIC_DIR = path.resolve(__dirname + '/public')
+const APP_DIR = path.resolve(__dirname + '/src')
 
-var config = {
-  entry: APP_DIR + '/index.jsx',
+module.exports = {
+  entry: {
+    main: APP_DIR + '/index.jsx',
+    vendor: ['react', 'react-dom'],
+  },
   output: {
-    path: BUILD_DIR,
-    filename: 'bundle.js',
+    path: PUBLIC_DIR,
+    filename: '[name].js',
     publicPath: '/'
   },
   module: {
@@ -21,8 +25,36 @@ var config = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
-  ]
-}
+    /* Clean up the build dirs */
+    new CleanWebpackPlugin(['build', PUBLIC_DIR + '/*.js']),
 
-module.exports = config
+    /* set node env to prod, for minimised vendor builds etc. */
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+
+    /* For minimising js */
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+
+    /* Prod recommended version of NamedModulesPlugin */
+    new webpack.HashedModuleIdsPlugin(),
+
+    /* Creates the vendor code split (see: entry.vendor) */
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor']
+    }),
+
+    /*
+    Creates the webpack runtime code split (extracts uses of modules from src files
+    so we don't regenerate vendor every time we make a change in src - webpack witchcraft)
+    */
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['runtime']
+    })
+  ],
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
+}
