@@ -1,6 +1,5 @@
 import path from 'path'
 import express from 'express'
-import React from 'react'
 import { renderToString } from 'react-dom/server'
 import App from './containers/ServerApp'
 import config from './config'
@@ -14,7 +13,7 @@ app.set('view engine', 'ejs')
 const router = express.Router()
 
 router.get('*', (req, res) => {
-  let context = {};
+  let context = {}
 
   const content = renderToString(App)
 
