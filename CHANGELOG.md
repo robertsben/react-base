@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+### Features
+* Now uses `react-router`
+* Now does server side rendering for the production app
+* Now has a generic 404 page for routes we don't have stuff for
+
 ## 0.2.0
 ### Features
 * Now include counter app to show state
