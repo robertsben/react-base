@@ -2,10 +2,8 @@ import path from 'path'
 import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
-import { renderRoutes } from 'react-router-config'
+import App from './containers/ServerApp'
 import config from './config'
-import routes from './modules/routes'
 const app = express()
 const PORT = config.port || 3000
 
@@ -18,11 +16,7 @@ const router = express.Router()
 router.get('*', (req, res) => {
   let context = {};
 
-  const content = renderToString(
-    <StaticRouter location={req.url} context={context}>
-      {renderRoutes(routes)}
-    </StaticRouter>
-  )
+  const content = renderToString(App)
 
   if (context.status == 404) {
     res.status(404)
