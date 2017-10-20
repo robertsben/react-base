@@ -13,7 +13,7 @@ const render = Component =>
 
 render(App)
 
-if (module.hot) module.hot.accept('./containers/App', () => {
+if (module.hot) module.hot.accept('./containers/ClientApp', () => {
   const NextApp = require('./containers/ClientApp').default
   render(NextApp)
 })
